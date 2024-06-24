@@ -7,19 +7,35 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.0" fx:controller="application.SignUpController">
+<AnchorPane prefHeight="424.0" prefWidth="398.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SignUpController">
     <children>
         <Label layoutX="85.0" layoutY="42.0" text="Sign Up" textFill="black">
             <font>
                 <Font name="Times New Roman Bold" size="20.0" />
             </font>
         </Label>
+
+        <!--UserName Field and Required Indicator -->
         <Label layoutX="85.0" layoutY="100.0" text="Username" textFill="black" />
+        <Label layoutX="270.0" layoutY="100.0" text="*" textFill="red" />
         <TextField fx:id="userNameField" layoutX="85.0" layoutY="120.0" prefHeight="25.0" prefWidth="200.0" />
+
+        <!--Password Field and Required Indicator -->
         <Label layoutX="85.0" layoutY="160.0" text="Password" textFill="black" />
+        <Label layoutX="270.0" layoutY="160.0" text="*" textFill="red" />
         <PasswordField fx:id="passwordField" layoutX="85.0" layoutY="180.0" prefHeight="25.0" prefWidth="200.0" />
+
+        <!--confirmPassword Field and Required Indicator -->
         <Label layoutX="85.0" layoutY="220.0" text="Confirm Password" textFill="black" />
+        <Label layoutX="270.0" layoutY="220.0" text="*" textFill="red" />
         <PasswordField fx:id="confirmPasswordField" layoutX="85.0" layoutY="240.0" prefHeight="25.0" prefWidth="200.0" />
-        <Button fx:id="signUpButton" layoutX="85.0" layoutY="290.0" mnemonicParsing="false" text="Sign Up" onAction="#handleSingUp" />
+        <Button fx:id="signUpButton" layoutX="85.0" layoutY="290.0" mnemonicParsing="false" onAction="#handleSingUp" text="Sign Up" />
+        <!-- Legend Definition -->
+        <Label layoutX="279.0" layoutY="14.0" prefHeight="17.0" prefWidth="12.0" text="*" textFill="RED" />
+        <Label layoutX="285.0" layoutY="14.0" prefHeight="17.0" prefWidth="100.0" text="Required text Fields">
+         <font>
+            <Font name="Arial Italic" size="10.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
