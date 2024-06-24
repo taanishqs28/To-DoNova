@@ -39,13 +39,13 @@ To-DoNova is a simple and efficient To-Do list application that helps you organi
     *For Linux: sudo services cassandra start
 
 3. **Import Project to IntelliJ IDEA:**
-- Open IntelliJ IDEA and select Open.
-- Navigate to the To-DoNova directory and select it.
+   - Open IntelliJ IDEA and select Open.
+   - Navigate to the To-DoNova directory and select it.
 
 4. **Run Applications:**
-- Open the **Main** class.
-- Right click and select **Run 'Main.main()'**.
-- Make sure to add the JavaFX Library to buildpath.
+   - Open the **Main** class.
+   - Right click and select **Run 'Main.main()'**.
+   - Make sure to add the JavaFX Library to buildpath.
 
 ## Usage
 1. **Start the Application:**
