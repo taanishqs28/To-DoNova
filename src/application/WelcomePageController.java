@@ -1,7 +1,13 @@
 package application;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -14,20 +20,26 @@ public class WelcomePageController {
     private PasswordField passwordField;
 
     @FXML
-    private Label signInLabel;
+    private Button signInButton;
 
     @FXML
-    private Label signUpLabel;
+    private Button signUpButton;
 
     @FXML
-    private void handleSignIn() {
+    private void initialize() {
+        // Initialization code here
+
+    }
+
+    @FXML
+    private void handleSignIn(ActionEvent e) {
         String username = usernameField.getText();
         String password = passwordField.getText();
         
         // Implement sign-in logic (e.g., validate user credentials)
         if (validateCredentials(username, password)) {
             // Load the main application screen (e.g., To-Do list screen)
-            loadMainApp();
+            loadMainApp(e);
         } else {
             // Show error message
             System.out.println("Invalid credentials");
@@ -35,9 +47,9 @@ public class WelcomePageController {
     }
 
     @FXML
-    private void handleSignUp() {
+    private void handleSignUp(ActionEvent e) {
         // Implement sign-up logic (e.g., navigate to sign-up screen or show sign-up form)
-        showSignUpForm();
+        showSignUpForm(e);
     }
 
     private boolean validateCredentials(String username, String password) {
@@ -45,13 +57,38 @@ public class WelcomePageController {
         return "user".equals(username) && "password".equals(password);
     }
 
-    private void loadMainApp() {
+    private void loadMainApp(ActionEvent e) {
         // Logic to load the main application screen
         System.out.println("Loading main application...");
+        try {
+            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Welcome.fxml")); // Update this path as per your project
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("To-DoNova - Main App");
+            stage.show();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 
-    private void showSignUpForm() {
+    private void showSignUpForm(ActionEvent e) {
         // Logic to show sign-up form or navigate to sign-up screen
-        System.out.println("Showing sign-up form...");
+        try{
+            System.out.println("Showing sign-up form...");
+            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            FXMLLoader load = new FXMLLoader(getClass().getResource("/view/Signup.fxml"));
+            Parent root = load.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Sign Up for To-DoNova");
+            stage.show();
+
+        }catch(Exception exception){
+            exception.printStackTrace(); //Prints the stack trace if exception happen
+        }
+
+
     }
 }
