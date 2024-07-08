@@ -1,4 +1,4 @@
-package application;
+package application.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +48,7 @@ public class WelcomePageController {
 
     @FXML
     private void handleSignUp(ActionEvent e) {
-        // Implement sign-up logic (e.g., navigate to sign-up screen or show sign-up form)
+        // Implement sign-up logic
         showSignUpForm(e);
     }
 
@@ -62,7 +62,7 @@ public class WelcomePageController {
         System.out.println("Loading main application...");
         try {
             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Welcome.fxml")); // Update this path as per your project
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Welcome.fxml")); // Update this path
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
