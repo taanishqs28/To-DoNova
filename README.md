@@ -56,7 +56,7 @@ To-DoNova is a simple and efficient To-Do list application that helps you organi
    - All your tasks will be listed in the main window.
 
 ### Contact
-For any questions or suggestions, please contact us at taanishqsethi28@gmail.com
+For any questions or suggestions, please contact me at taanishqsethi28@gmail.com
 
 
 **Feel free to customize the content as per your requirements and repository details. Drop a star if you like this application! Happy Coding**
