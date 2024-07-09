@@ -20,9 +20,9 @@ public class Main extends Application {
 
             Scene welcomeScene = new Scene(root, 400, 600);
 
-            primaryStage.setScene(welcomeScene);
-            primaryStage.setTitle("To-Do App");
-            primaryStage.show();
+            this.primaryStage.setScene(welcomeScene);
+            this.primaryStage.setTitle("To-Do App");
+            this.primaryStage.show();
 
         }catch(Exception e) {
             e.printStackTrace();
