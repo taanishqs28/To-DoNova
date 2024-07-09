@@ -18,10 +18,12 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Welcome.fxml"));
             Parent root = loader.load();
 
-            Scene welcomeScene = new Scene(root, 400, 600);
+            Scene welcomeScene = new Scene(root, 800, 500);
 
             this.primaryStage.setScene(welcomeScene);
             this.primaryStage.setTitle("To-Do App");
+            this.primaryStage.setFullScreen(true); // Set the stage to full screen
+            this.primaryStage.setResizable(false); // Ensure the window is resizable
             this.primaryStage.show();
 
         }catch(Exception e) {
