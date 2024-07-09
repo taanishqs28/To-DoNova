@@ -28,23 +28,7 @@ public class SignUpController {
 
         //checks if the text-fields are empty or not
         if(username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()){
-            String missingField = "";
-
-            if(username.isEmpty()){
-                missingField += "Username";
-            }
-            if(password.isEmpty()){
-                if (!missingField.isEmpty()) {
-                    missingField += ", ";
-                }
-                missingField += "Password";
-            }
-            if(confirmPassword.isEmpty()){
-                if (!missingField.isEmpty()) {
-                    missingField += ", ";
-                }
-                missingField += "Confirm Password";
-            }
+            String missingField = getMissingField(username, password, confirmPassword);
             showAlert(AlertType.ERROR, "Form Error!", "Please fill in the following field(s): " + missingField);
         }
 
@@ -60,6 +44,28 @@ public class SignUpController {
             System.out.println("Passwords do not match");
         }
     }
+
+    private static String getMissingField(String username, String password, String confirmPassword) {
+        String missingField = "";
+
+        if(username.isEmpty()){
+            missingField += "Username";
+        }
+        if(password.isEmpty()){
+            if (!missingField.isEmpty()) {
+                missingField += ", ";
+            }
+            missingField += "Password";
+        }
+        if(confirmPassword.isEmpty()){
+            if (!missingField.isEmpty()) {
+                missingField += ", ";
+            }
+            missingField += "Confirm Password";
+        }
+        return missingField;
+    }
+
     private void showAlert(AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
