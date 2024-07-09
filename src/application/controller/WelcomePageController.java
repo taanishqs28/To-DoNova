@@ -20,6 +20,12 @@ public class WelcomePageController {
     private PasswordField passwordField;
 
     @FXML
+    private Button signInButton;
+
+    @FXML
+    private Button signUpButton;
+
+    @FXML
     private void initialize() {
         // Initialization code here
 
