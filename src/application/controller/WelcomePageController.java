@@ -10,6 +10,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class WelcomePageController {
 
@@ -20,6 +22,9 @@ public class WelcomePageController {
     private PasswordField passwordField;
 
     @FXML
+    private ImageView imageView;
+
+    @FXML
     private Button signInButton;
 
     @FXML
@@ -27,8 +32,14 @@ public class WelcomePageController {
 
     @FXML
     private void initialize() {
-        // Initialization code here
-
+        try {
+            String imagePath = getClass().getResource("/To-DoNova.png").toExternalForm();
+            System.out.println("Image Path: " + imagePath); // Print the absolute path
+            Image image = new Image(imagePath);
+            imageView.setImage(image);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
