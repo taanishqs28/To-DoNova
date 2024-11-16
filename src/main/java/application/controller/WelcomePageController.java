@@ -1,5 +1,8 @@
 package application.controller;
 
+import java.util.Optional;
+import application.models.User;
+import application.models.UserDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -64,8 +67,12 @@ public class WelcomePageController {
     }
 
     private boolean validateCredentials(String username, String password) {
-        // Dummy validation logic, replace with actual validation
-        return "user".equals(username) && "password".equals(password);
+        Optional<User> userOptional = UserDAO.getUserByUsername(username);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            return user.getPassword().equals(password); // Add password hashing verification here
+        }
+        return false;
     }
 
     private void loadMainApp(ActionEvent e) {
