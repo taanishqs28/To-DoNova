@@ -1,11 +1,13 @@
 package application.controller;
 
+import application.models.User;
+import application.models.UserDAO;
 import javafx.fxml.FXML;
-import  javafx.scene.control.Alert;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import  javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Alert.AlertType;
 public class SignUpController {
 
     @FXML
@@ -32,16 +34,20 @@ public class SignUpController {
             showAlert(AlertType.ERROR, "Form Error!", "Please fill in the following field(s): " + missingField);
         }
 
-        //Checks is password and confirm password are equal
-        else if(password.equals(confirmPassword)){
+        //Shows an error alert if the passwords don't match
+        else if(!password.equals(confirmPassword)){
             //Registration Logic here
-            showAlert(AlertType.INFORMATION, "Registration Successful", "You have successfully registered!");
+            showAlert(Alert.AlertType.ERROR, "Password Mismatch", "Passwords do not match.");
 
             System.out.println("Password Matched");
         }else{
-            //Show Error Message
-            showAlert(AlertType.INFORMATION, "Password Mismatch", "Password do not match, please try again.");
-            System.out.println("Passwords do not match");
+            User user = new User(username, password); // to-do in future: hash the password
+            if(UserDAO.saveUser(user)){
+                showAlert(Alert.AlertType.INFORMATION, "Success", "Registration successful!");
+
+            }else{
+                showAlert(Alert.AlertType.ERROR, "Database Error", "Could not register user.");
+            }
         }
     }
 
